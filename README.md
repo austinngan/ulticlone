@@ -2,8 +2,8 @@
 
 ## Roles
 - Austin Ngan (Gerald) : Project Manager
-- Yoonah Chang (Yelena) : Backend
-- Yaying Liang Li (Blob) :  Frontend
+- Yoonah Chang (Yelena) : Frontend
+- Yaying Liang Li (Blob) :  Backend
 - Han Zhang (Sirap) :  Backend
 
 ## Description
@@ -16,7 +16,7 @@ ree ree ree
 - Clone the Repository <br>
 ```$ git clone git@github.com:austinngan/ulticlone.git``` <br><br>
 - Install Dependencies <br>
-```$ cd P04 ``` <br>
+```$ cd ulticlone ``` <br>
 ```$ pip install -r requirements.txt``` <br><br> 
 - Run the app <br>
 ```$ cd app```<br>
