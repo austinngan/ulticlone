@@ -1,10 +1,10 @@
 # ulticlone by Stinky Fingers
 
 ## Roles
-- Austin Ngan <Gerald> : Project Manager
-- Yoonah Chang <Yelena> : Backend
-- Yaying Liang Li <Blob> :  Frontend
-- Han Zhang <Sirap> :  Backend
+- Austin Ngan (Gerald) : Project Manager
+- Yoonah Chang (Yelena) : Backend
+- Yaying Liang Li (Blob) :  Frontend
+- Han Zhang (Sirap) :  Backend
 
 ## Description
 ree ree ree
