@@ -2,3 +2,11 @@ Stinky Fingers: Austin Ngan (Gerald), Yoonah Chang (), Yaying Liang Li (), Han Z
 SoftDev
 P04 -- Le Fin
 2022-05-24
+
+austinN -- 2022-05-25 20:00
+
+Worked on design doc.
+
+hanZ -- 2022-05-26 08:25
+
+Updated README
