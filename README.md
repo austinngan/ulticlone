@@ -9,6 +9,8 @@
 ## Description
 We are creating an all-in-one Ultimate Frisbee site that can check attendance, see the team's official roster, store important information like emails and USAU IDs, and animate Ultimate Frisbee plays like cuts and drills. Important links and documents will all be stored in one place, so captains and team members can access it easily. This website will be designed to be specifically used by the Stuyvesant Ultimate Frisbee teams.
   
+Target Ship Date : 06/14/2022  
+  
 ## Launch Codes
 - Install virtual environment <br>
 ```$ python3 -m venv env``` <br>
