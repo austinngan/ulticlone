@@ -10,3 +10,7 @@ Worked on design doc.
 hanZ -- 2022-05-26 08:25
 
 Updated README
+
+austinN -- 2022-05-26 23:29
+
+Added updated version of design doc
