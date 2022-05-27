@@ -1,13 +1,13 @@
-# ulticlone by Stinky Fingers
+# Ultibase by Stinky Fingers
 
 ## Roles
-- Austin Ngan (Gerald) : Project Manager
-- Yoonah Chang (Yelena) : Frontend
-- Yaying Liang Li (Blob) :  Backend
-- Han Zhang (Sirap) :  Backend
+- Austin Ngan (Gerald) : Project Manager & Frontend & Deployment (Docker/DO)
+- Yoonah Chang (Yelena) : Frontend (HTML)
+- Yaying Liang Li (Blob) :  Backend (JS/React)
+- Han Zhang (Sirap) :  Backend (DB & Routing)
 
 ## Description
-We are creating an all-in-one Ultimate Frisbee site that can check attendance, see the team's official roster, store important information like emails and USAU IDs, and animate Ultimate Frisbee plays like cuts and drills. Important links and documents will all be stored in one place, so captains and team members can access it easily. This website will be designed to be specifically used by the Stuyvesant Ultimate Frisbee teams.
+We are creating an all-in-one Ultimate Frisbee site that can check attendance, see the team's official roster, store important information like emails and USAU IDs, and animate Ultimate Frisbee plays like cuts and drills. Important links and documents will all be stored in one place, so captains and team members can access them easily. This website will be designed to be specifically used by the Stuyvesant Ultimate Frisbee teams.
   
 Target Ship Date : 06/10/2022  
   
@@ -25,4 +25,4 @@ Target Ship Date : 06/10/2022
 ```$ python3 __init__.py``` <br><br>
 - Open the website at http://127.0.0.1:5000/
 
-[Design Doc](google.com)
+[Design Doc](https://docs.google.com/document/d/1f4UatT9PReG1F0slmrjlT9d8N_y9Fge4Olmw74rRP58/edit?usp=sharing)
