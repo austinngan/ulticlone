@@ -14,3 +14,7 @@ Updated README
 austinN -- 2022-05-26 23:29
 
 Added updated version of design doc
+
+yayingLL -- 2022-05-27 5:15
+
+Design doc updated tables
