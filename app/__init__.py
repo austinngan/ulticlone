@@ -100,8 +100,9 @@ def register():
         c.execute("SELECT email FROM users WHERE email=?", (email,))
 
         if (c.fetchone() == None): #user doesn't exist; continue with registration
-            c.execute("INSERT INTO users(username, password, numRaces, numCoins) VALUES(?, ?, 0, 0)", (username, password))
-
+            c.execute("INSERT INTO users(email, password, name, usauID) VALUES(?, ?, ?, 0)", (email, password, name,))
+            #temporary usauID is denoted by the 0
+        #!!!!!!!!!!!!!!! go back to HTML and ask for name
 
         else: #error: username already taken
             return render_template("register.html", error="Username taken already")
