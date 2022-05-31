@@ -4,7 +4,6 @@ import sqlite3, os.path
 import json
 import urllib
 import random
-import db
 
 app = Flask(__name__)
 app.secret_key = urandom(32)
@@ -29,11 +28,6 @@ def logout():
 #login takes the user object and sets cookies
 @app.route("/login",  methods=['GET', 'POST'])
 def login():
-	'''
-    # stops a loggedin user when they try to log in
-    if islogged():
-        return render_template('loggedlock.html')
-	'''
     #create users table so user can login
     db = sqlite3.connect("users.db")
     c = db.cursor()
