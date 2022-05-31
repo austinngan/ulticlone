@@ -4,22 +4,20 @@ P04 -- Le Fin
 2022-05-24
 
 austinN -- 2022-05-25 20:00
-
 Worked on design doc.
 
 hanZ -- 2022-05-26 08:25
-
 Updated README
 
 austinN -- 2022-05-26 23:29
-
 Added updated version of design doc (components, component map)
 Added login/register
 
-yayingLL -- 2022-05-27 5:15
-
+yayingLL -- 2022-05-27 05:15
 Design doc updated tables
 
-austinN -- 2022-05-31- 09:15
-
+austinN -- 2022-05-31 09:15
 Added draw.html, provisionary canvas
+
+yoonahC -- 2022-05-31 09:19
+Added html templates, started on home and roster pages
