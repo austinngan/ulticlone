@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.secret_key = urandom(32)
 
 def islogged():
-    return 'username' in session.keys()
+    return 'email' in session.keys()
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
@@ -19,8 +19,7 @@ def home():
 def logout():
     # try except is for when user is not logged in and does /logout anyways and a KeyError occurs
     try:
-        session.pop('username')
-        session.pop('password')
+        session.pop('email')
     except KeyError:
         return redirect("/")
     return redirect("/")
@@ -45,24 +44,24 @@ if __name__=="__main__":
 def auth():
     if (request.method == 'POST'):
 
-        username = request.form.get("username")
+        email = request.form.get("email")
         password = request.form.get("password")
 
         #error handling for empty username
-        if username == '':
+        if email == '':
             return render_template("login.html", error="Empty username, who are you?")
 
         db = sqlite3.connect('users.db')
         c = db.cursor()
         #in case users goes straight to /register w/o running /login code
-        c.execute("CREATE TABLE IF NOT EXISTS users(username TEXT, password TEXT, numRaces INT, numCoins INT, UNIQUE(username))")
-        c.execute("SELECT username FROM users WHERE username=? ", (username,)) #SYNTAX: ADD , after to refer to entire username, otherwise SQL will count each char as a binding... -_-
+        c.execute("CREATE TABLE IF NOT EXISTS users(email TEXT, password TEXT, name TEXT, usauID INT, UNIQUE(email))")
+        c.execute("SELECT email FROM users WHERE email=? ", (email,))
         # username inputted by user is not found in database
         if c.fetchone() == None:
             return render_template("login.html", error="Wrong username, double check spelling or register")
         # username is found
         else:
-            c.execute("SELECT password FROM users WHERE username=? ", (username,))
+            c.execute("SELECT password FROM users WHERE email=? ", (email,))
             # password associated with username in database does not match password inputted
 
             #c.fetchone() returns a tuple with the password
@@ -71,10 +70,45 @@ def auth():
                 return render_template("login.html", error="Wrong password")
             # password is correct
             else:
-                session['username'] = username
+                session['email'] = email
         db.close()
         return redirect('/')
 
     #get method
     else:
         return redirect('/login')
+
+@app.route("/register", methods=['GET', 'POST'])
+def register():
+    if (request.method == 'POST'):
+        email = request.form.get("email")
+        password = request.form.get("password")
+        reenterpasswd = request.form.get("reenterpasswd")
+
+        #error handling
+        if email == '':
+            return render_template("register.html", error="Empty username, who are you?")
+        elif password == '':
+            return render_template("register.html", error="Empty password, you'll get hacked y'know :)")
+        elif password != reenterpasswd:
+            return render_template("register.html", error="Passwords don't match")
+        #username can have leading numbers and special chars in them
+
+        db = sqlite3.connect('users.db')
+        c = db.cursor()
+        c.execute("CREATE TABLE IF NOT EXISTS users(username TEXT, password TEXT, numRaces INT, numCoins INT, UNIQUE(username))")
+        c.execute("SELECT username FROM users WHERE username=?", (username,))
+
+        if (c.fetchone() == None): #user doesn't exist; continue with registration
+            #default number of races and coins = 0
+            c.execute("INSERT INTO users(username, password, numRaces, numCoins) VALUES(?, ?, 0, 0)", (username, password))
+            c.execute("INSERT INTO ducks VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (username, request.form.get("duckname"), 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ""))
+
+
+        else: #error: username already taken
+            return render_template("register.html", error="Username taken already")
+        db.commit()
+        db.close()
+        return redirect("/login")
+    else:
+        return render_template("register.html") # , test='&quot'

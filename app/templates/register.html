@@ -16,7 +16,7 @@ P01 -- ArRESTed Development
     <title>Signup</title>
 
     <link rel="shortcut icon" type="image/jpg" href="https://cdn-icons-png.flaticon.com/512/225/225932.png"/>
-    
+
   </head>
   <body>
     <div class="container d-flex justify-content-center mx-auto align-items-center">
@@ -28,13 +28,18 @@ P01 -- ArRESTed Development
           <form method="POST" action="/signup">
             <br>
             <div class="form-floating form-group mb-4">
-              <input class="form-control" type="username" placeholder="i can be BIIIG" id="exampleInputUsername1 floatingInput" name="newusername" aria-describedby="usernameHelp" required>
+              <input class="form-control" type="email" placeholder="i can be BIIIG" id="exampleInputUsername1 floatingInput" name="newusername" aria-describedby="usernameHelp" required>
               <label for="floatingInput exampleInputUsername1"> username</label>
             </div>
 
             <div class="form-floating form-group mb-4">
               <input class="form-control" type="password" placeholder="i can be BIIIG" id="exampleInputPassword1 floatingInput" name="newpassword" aria-describedby="usernameHelp" required>
               <label for="floatingInput exampleInputPassword1"> password </label>
+            </div>
+
+            <div class="form-floating form-group mb-4">
+              <input class="form-control" type="reenterpasswd" placeholder="i can be BIIIG" id="exampleInputPassword1 floatingInput" name="newpassword" aria-describedby="usernameHelp" required>
+              <label for="floatingInput exampleInputPassword1"> re-enter password </label>
             </div>
 
             <!-- OLD PASSWORD CODE
