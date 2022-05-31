@@ -72,8 +72,6 @@ def auth():
             # password is correct
             else:
                 session['username'] = username
-                session['password'] = password
-                print(session['username'])
         db.close()
         return redirect('/')
 
