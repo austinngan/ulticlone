@@ -96,13 +96,11 @@ def register():
 
         db = sqlite3.connect('users.db')
         c = db.cursor()
-        c.execute("CREATE TABLE IF NOT EXISTS users(username TEXT, password TEXT, numRaces INT, numCoins INT, UNIQUE(username))")
-        c.execute("SELECT username FROM users WHERE username=?", (username,))
+        c.execute("CREATE TABLE IF NOT EXISTS users(email TEXT, password TEXT, name TEXT, usauID INT, UNIQUE(email))")
+        c.execute("SELECT email FROM users WHERE email=?", (email,))
 
         if (c.fetchone() == None): #user doesn't exist; continue with registration
-            #default number of races and coins = 0
             c.execute("INSERT INTO users(username, password, numRaces, numCoins) VALUES(?, ?, 0, 0)", (username, password))
-            c.execute("INSERT INTO ducks VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (username, request.form.get("duckname"), 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ""))
 
 
         else: #error: username already taken
