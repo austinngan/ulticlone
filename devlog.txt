@@ -24,3 +24,6 @@ Added HTML templates, started on home and roster pages
 
 yoonahC -- 2022-06-01 09:18
 Edited all HTML templates, made each page extend from layout.html, added CSS
+
+austinN -- 2022-06-01 10:09
+Added redirects for different pages
