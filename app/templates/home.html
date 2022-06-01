@@ -4,23 +4,13 @@ SoftDev
 P04 -- Ultibase
 2022-06-10 -->
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title> Home</title>
-    <link rel="stylesheet" href="static/css/homestyle.css">
-  </head>
-<body>
-  <ul>
-    <li><a href="announcements">Announcements</a></li>
-    <li><a href="roster">Roster</a></li>
-    <li><a href="plays">Create/View Plays</a></li>
-    <li><a href="about">About</a></li>
-    <li style="float:right"><a class="active" href="logout">Logout</a></li>
-  </ul>
+{% extends "layout.html" %}
+
+{% block title %} Home {% endblock %}
+{% block body %}
   <br>
   <h1> Welcome to Ultibase </h1>
     <center>
       <img src="flag.jpg" alt="stinky fingers" width="600" height="100">
     </center>
-</html>
+{% endblock %}

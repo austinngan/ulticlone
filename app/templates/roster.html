@@ -4,16 +4,13 @@ SoftDev
 P04 -- Ultibase
 2022-06-10 -->
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title> Roster </title>
-    <link rel="stylesheet" href="static/css/rosterstyle.css">
-  </head>
-  <body>
+{% extends "base.html" %}
+{% block title %} Roster {% endblock %}
+
+{% block body %}
     <button type="button" class="collapsible">Member Name</button>
       <div class="content">
         <p> USAU ID: {{id}} </p>
         <p> Teams: {{team}} </p>
       </div>
-  </body>
+{% endblock %}

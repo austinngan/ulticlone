@@ -1,13 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+<!--
+Stinky Fingers: Austin Ngan (Gerald), Yoonah Chang (Yelena), Yaying Liang Li (Blob), Han Zhang (Sirap)
+SoftDev
+P04 -- Ultibase
+2022-06-10 -->
 
-<link rel="stylesheet" type="text/css" href="style.css">
+{% extends "layout.html" %}
 
-	<head>
-		<meta charset="utf-8"/>
-		<title>Draw a play!</title>
-	</head>
-	
+{% block title %} Draw a Play! {% endblock %}
+{% block body %}
+
 	<style>
 		#playground { border: 1px solid black }
 	</style>
@@ -26,7 +27,7 @@
 		<button id="clear">
 		CLEAR
 		</button>
-    
+
 	</div>
 
 	<div style = "display:flex; align-items: center; justify-content: center">
@@ -47,4 +48,4 @@
 
 	<script src="temp.js"></script>
 
-</html>
+{% endblock %}

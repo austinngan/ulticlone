@@ -1,0 +1,47 @@
+<!--
+Stinky Fingers: Austin Ngan (Gerald), Yoonah Chang (Yelena), Yaying Liang Li (Blob), Han Zhang (Sirap)
+SoftDev
+P04 -- Ultibase
+2022-06-10 -->
+
+{# base template #}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+    <nav>
+      <div>
+        <a id="home" href="/"> 🥏 Ultibase </a>
+        <a id="roster" href="/roster">Roster</a>
+        <a id="plays" href="/plays">Plays</a>
+        <a id="tracker" href="/tracker">Toss Buddy Tracker</a>
+        <a id="about" href="/about">About</a>
+      </div>
+      <div>
+        {% if user is defined and user is not none %}
+          <a id = "user">Hello there, {{user}}!</a>
+          <a id="logout"href="/logout">Logout</a>
+        {% else %}
+          <a id="login" href="/login">Login</a>
+          <a id="signup" href="/register">Signup</a>
+        {% endif %}
+      </div>
+    </nav>
+
+    <main>
+      {% block body %}{% endblock %}
+    </main>
+
+    <footer>
+      &copy; 2022 Stinky Fingers
+      <br/>
+      Austin Ngan, Yoonah Chang, Han Zhang, Yaying Liang Li
+    </footer>
+  </body>
+</html>
