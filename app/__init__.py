@@ -80,6 +80,10 @@ def auth():
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
+
+    if islogged():
+        return redirect("/")
+
     if (request.method == 'POST'):
         email = request.form.get("email")
         password = request.form.get("password")
@@ -109,28 +113,29 @@ def register():
         db.commit()
         db.close()
         return redirect("/login")
+
     else:
         return render_template("register.html") # , test='&quot'
 
-@app.route("/roster")
+@app.route("/roster", methods=['GET', 'POST'])
 def roster():
-	if not logged_in():
-		return redirect("/home")
-	return render_template("roster.html")
-
-@app.route("/plays")
-def view_plays():
 	if not islogged():
 		return redirect("/login")
 	return render_template("roster.html")
 
-@app.route("/tracker")
-def view_tracker():
+@app.route("/plays", methods=['GET', 'POST'])
+def plays():
+	if not islogged():
+		return redirect("/login")
+	return render_template("draw.html") #placeholder stuff
+
+@app.route("/tracker", methods=['GET', 'POST'])
+def tracker():
 	if not islogged():
 		return redirect("/login")
 	return render_template("tracker.html")
 
-@app.route("/about")
+@app.route("/about", methods=['GET', 'POST'])
 def about():
 	if not islogged():
 		return redirect("/login")
