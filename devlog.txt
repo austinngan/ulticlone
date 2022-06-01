@@ -20,4 +20,7 @@ austinN -- 2022-05-31 09:15
 Added draw.html, provisionary canvas
 
 yoonahC -- 2022-05-31 09:19
-Added html templates, started on home and roster pages
+Added HTML templates, started on home and roster pages
+
+yoonahC -- 2022-06-01 09:18
+Edited all HTML templates, made each page extend from layout.html, added CSS
