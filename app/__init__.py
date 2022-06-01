@@ -111,3 +111,27 @@ def register():
         return redirect("/login")
     else:
         return render_template("register.html") # , test='&quot'
+
+@app.route("/roster")
+def roster():
+	if not logged_in():
+		return redirect("/home")
+	return render_template("roster.html")
+
+@app.route("/plays")
+def view_plays():
+	if not islogged():
+		return redirect("/login")
+	return render_template("roster.html")
+
+@app.route("/tracker")
+def view_tracker():
+	if not islogged():
+		return redirect("/login")
+	return render_template("tracker.html")
+
+@app.route("/about")
+def about():
+	if not islogged():
+		return redirect("/login")
+	return render_template("about.html")
