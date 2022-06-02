@@ -38,9 +38,7 @@ def login():
     db.close()
     return render_template('login.html')
 
-if __name__=="__main__":
-    app.debug = True
-    app.run()
+
 
 # authentication of login; verifies login information
 @app.route("/auth", methods=['GET', 'POST'])
@@ -161,3 +159,7 @@ def about():
     if not islogged():
         return redirect("/login")
     return render_template("about.html")
+    
+if __name__=="__main__":
+    app.debug = True
+    app.run()
