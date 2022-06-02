@@ -39,8 +39,8 @@ def login():
     return render_template('login.html')
 
 if __name__=="__main__":
-	app.debug = True
-	app.run()
+    app.debug = True
+    app.run()
 
 # authentication of login; verifies login information
 @app.route("/auth", methods=['GET', 'POST'])
@@ -124,8 +124,8 @@ def register():
 
 @app.route("/roster", methods=['GET', 'POST'])
 def roster():
-	if not islogged():
-		return redirect("/login")
+    if not islogged():
+        return redirect("/login")
 
     all_roster = {} #dictionary of all the roster info; {2022: [name, g/b, usauID]}
     temp_current_year = current_year #mutate the current_year info without actually changing the current_year
@@ -146,18 +146,18 @@ def roster():
 
 @app.route("/plays", methods=['GET', 'POST'])
 def plays():
-	if not islogged():
-		return redirect("/login")
-	return render_template("draw.html") #placeholder stuff
+    if not islogged():
+        return redirect("/login")
+    return render_template("draw.html") #placeholder stuff
 
 @app.route("/tracker", methods=['GET', 'POST'])
 def tracker():
-	if not islogged():
-		return redirect("/login")
-	return render_template("tracker.html")
+    if not islogged():
+        return redirect("/login")
+    return render_template("tracker.html")
 
 @app.route("/about", methods=['GET', 'POST'])
 def about():
-	if not islogged():
-		return redirect("/login")
-	return render_template("about.html")
+    if not islogged():
+        return redirect("/login")
+    return render_template("about.html")
