@@ -142,11 +142,17 @@ def roster():
     return render_template("roster.html", allInfo = all_roster, admin = True)
     #!!!!!!!!!! set admin to a variable NOT ALWAYS TRUE
 
-@app.route("/plays", methods=['GET', 'POST'])
-def plays():
+@app.route("/draw", methods=['GET', 'POST'])
+def draw():
     if not islogged():
         return redirect("/login")
     return render_template("draw.html") #placeholder stuff
+
+@app.route("/attendance", methods=['GET', 'POST'])
+def attendance():
+    if not islogged():
+        return redirect("/login")
+    return render_template("attendance.html") #placeholder stuff
 
 @app.route("/tracker", methods=['GET', 'POST'])
 def tracker():
