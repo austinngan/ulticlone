@@ -8,6 +8,9 @@ import random
 app = Flask(__name__)
 app.secret_key = urandom(32)
 
+current_year = 2021 #is mutable; can increment
+starting_year = 2021 #not mutable
+
 def islogged():
     return 'email' in session.keys()
 
@@ -121,7 +124,23 @@ def register():
 def roster():
 	if not islogged():
 		return redirect("/login")
-	return render_template("roster.html")
+
+    all_roster = {} #dictionary of all the roster info; {2022: [name, g/b, usauID]}
+    temp_current_year = current_year #mutate the current_year info without actually changing the current_year
+    while temp_current_year >= starting_year:
+        db = sqlite3.connect('users.db')
+        c = db.cursor()
+        c.execute("SELECT * FROM ?", (temp_current_year,))
+        info = c.fetchall()
+
+        #add the info into the dictionary
+        all_roster[temp_current_year] = info
+        #decrement current_year
+        temp_current_year -= 1
+
+    print(all_roster)
+    return render_template("roster.html", allInfo = all_roster, admin = True)
+    #!!!!!!!!!! set admin to a variable NOT ALWAYS TRUE
 
 @app.route("/plays", methods=['GET', 'POST'])
 def plays():
