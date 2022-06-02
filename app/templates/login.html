@@ -9,21 +9,45 @@ P04 -- Ultibase
 {% block title %} Login {% endblock %}
 
 {% block body %}
-<form method="POST" action="/login">
-  <br>
-  <div class="form-floating form-group mb-4">
-    <input class="form-control" type="username" placeholder="i can be BIIIG" id = "floatingInput exampleInputUsername1" name = "username" required>
-    <label for="floatingInput exampleInputUsername1 "> username</label>
-    <input class="form-control" type="email" placeholder="i can be BIIIG" id = "floatingInput exampleInputUsername1" name = "username" required>
-    <label for="floatingInput exampleInputUsername1 "> email </label>
-  </div>
+<body>
+  <div class="row align-items-start">
+    <div class="col">
+      <div class="container d-flex justify-content-center mx-auto align-items-center">
+          <div class="card login-card">
+            <div class="card-body">
+              <center>
+                <h2 class="card-title"> Login </h2>
+              </center>
 
-  <div class="form-floating form-group mb-4">
-    <input class="form-control" type="password" placeholder="i can be BIIIG" id = "floatingInput exampleInputPassword1" name = "password" required>
-    <label for="floatingInput exampleInputPassword1"> password</label>
-    <label for="floatingInput exampleInputPassword1"> password </label>
-  </div>
-  <center>
-    <div class="form-group">
-  <a id="register" class="flex-center" href = "/register">Don't have an account? Sign up</a>
+              <form method="POST" action="/login">
+                <br>
+                <div class="form-floating form-group mb-4">
+                  <input class="form-control" type="email" placeholder="i can be BIIIG" id = "floatingInput exampleInputUsername1" name = "username" required>
+                  <label for="floatingInput exampleInputUsername1 "> email </label>
+                </div>
+
+                <div class="form-floating form-group mb-4">
+                  <input class="form-control" type="password" placeholder="i can be BIIIG" id = "floatingInput exampleInputPassword1" name = "password" required>
+                  <label for="floatingInput exampleInputPassword1"> password </label>
+                </div>
+                <center>
+                  <div class="form-group">
+                    <input type="submit" value="Login" class="btn btn-purple submitbutton" ></input>
+                  </div>
+                </center>
+              </form>
+
+              <br>
+
+              <div class="form-group">
+               <p style="color:red;">{{ explain }}</p>
+               <a id="register" href = "/signup"> Don't have an Account? Sign up!</a>
+              </div>
+            </div> <!-- card body -->
+          </div> <!-- card div -->
+        </div> <!-- container div -->
+      </div>
+    </div>
+
+</body>
 {% endblock %}
