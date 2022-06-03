@@ -96,6 +96,7 @@ def register():
         email = request.form.get("email")
         password = request.form.get("password")
         reenterpasswd = request.form.get("reenterpasswd")
+        usau = request.form.get("usauID")
 
         #error handling
         if email == '':
@@ -152,26 +153,22 @@ def roster():
 
 @app.route("/draw", methods=['GET', 'POST'])
 def draw():
-    if not islogged():
-        return redirect("/login")
+
     return render_template("draw.html") #placeholder stuff
 
 @app.route("/attendance", methods=['GET', 'POST'])
 def attendance():
-    if not islogged():
-        return redirect("/login")
+
     return render_template("attendance.html") #placeholder stuff
 
 @app.route("/tracker", methods=['GET', 'POST'])
 def tracker():
-    if not islogged():
-        return redirect("/login")
+
     return render_template("tracker.html")
 
 @app.route("/about", methods=['GET', 'POST'])
 def about():
-    if not islogged():
-        return redirect("/login")
+
     return render_template("about.html")
 
 if __name__=="__main__":
