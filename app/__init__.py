@@ -45,7 +45,6 @@ def login():
     return render_template('login.html')
 
 
-
 # authentication of login; verifies login information
 @app.route("/auth", methods=['GET', 'POST'])
 def auth():
@@ -65,7 +64,7 @@ def auth():
         c.execute("SELECT email FROM users WHERE email=? ", (email,))
         # username inputted by user is not found in database
         if c.fetchone() == None:
-            return render_template("login.html", error="Wrong username, double check spelling or register")
+            return render_template("login.html", error="Wrong email, double check spelling or register")
         # username is found
         else:
             c.execute("SELECT password FROM users WHERE email=? ", (email,))
@@ -79,6 +78,7 @@ def auth():
             else:
                 session['email'] = email
         db.close()
+        print("redirecting")
         return redirect('/')
 
     #get method
@@ -124,6 +124,7 @@ def register():
             return render_template("register.html", error="Username taken already")
         db.commit()
         db.close()
+        print()
         return redirect("/login")
 
     else:
