@@ -86,6 +86,7 @@ def register():
         return redirect("/")
 
     if (request.method == 'POST'):
+        name = request.form.get("name")
         email = request.form.get("email")
         password = request.form.get("password")
         reenterpasswd = request.form.get("reenterpasswd")
@@ -107,7 +108,7 @@ def register():
         if (c.fetchone() == None): #user doesn't exist; continue with registration
             c.execute("INSERT INTO users(email, password, name, usauID) VALUES(?, ?, ?, 0)", (email, password, name,))
             #temporary usauID is denoted by the 0
-        #!!!!!!!!!!!!!!! go back to HTML and ask for name
+
             #table for <year> rostering
             c.execute("CREATE TABLE IF NOT EXISTS {year}(email TEXT, password TEXT, name TEXT, team TEXT, usauID INT, UNIQUE(email))".format(year=current_year))
 
@@ -165,7 +166,7 @@ def about():
     if not islogged():
         return redirect("/login")
     return render_template("about.html")
-    
+
 if __name__=="__main__":
     app.debug = True
     app.run()
