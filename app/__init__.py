@@ -10,9 +10,15 @@ app.secret_key = urandom(32)
 
 current_year = 2021 #is mutable; can increment
 starting_year = 2021 #not mutable
+adminlist = ['admin@admin.com']
 
 def islogged():
     return 'email' in session.keys()
+
+def isAdmin(email):
+    if email in adminlist:
+        return True
+    return False
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
