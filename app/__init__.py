@@ -116,7 +116,8 @@ def register():
             #temporary usauID is denoted by the 0
 
             #table for <year> rostering
-            c.execute("CREATE TABLE IF NOT EXISTS {year}(email TEXT, password TEXT, name TEXT, team TEXT, usauID INT, UNIQUE(email))".format(year=current_year))
+            table = "CREATE TABLE {year}(email TEXT, password TEXT, name TEXT, team TEXT, usauID INT)".format(year=current_year)
+            c.execute(table)
 
         else: #error: username already taken
             return render_template("register.html", error="Username taken already")
