@@ -36,3 +36,7 @@ Edited templates, changed login and register.html back to original version so it
 
 austinN -- 2022-06-02 09:18
 Fixed redirects, css now works
+
+austinN -- 2022-06-03 09:26
+Started JS files for looping through roster + attendance to show for all users
+Temporarily removed redirects for login for testing
