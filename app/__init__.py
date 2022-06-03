@@ -8,8 +8,8 @@ import random
 app = Flask(__name__)
 app.secret_key = urandom(32)
 
-current_year = "2021" #is mutable; can increment
-starting_year = "2021" #not mutable
+current_year = 2021 #is mutable; can increment
+starting_year = 2021 #not mutable
 
 def islogged():
     return 'email' in session.keys()
@@ -110,7 +110,7 @@ def register():
             #temporary usauID is denoted by the 0
 
             #table for <year> rostering
-            table = "CREATE TABLE {year}(email TEXT, password TEXT, name TEXT, team TEXT, usauID INT)".format(year=current_year)
+            table = "CREATE TABLE IF NOT EXISTS {year}(email TEXT, password TEXT, name TEXT, team TEXT, usauID INT)".format(year="A"+str(current_year))
             c.execute(table)
 
         else: #error: username already taken
