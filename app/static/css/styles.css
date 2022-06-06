@@ -41,7 +41,7 @@ a:hover {
    ============================================== */
 nav {
   padding: 1.2rem 2rem;
-  background-color: rgb(30, 30, 30);
+  background-color: rgb(35, 65, 87);
 
   font-size: 1.4rem;
 
@@ -61,14 +61,4 @@ nav > div {
 
 nav * {
   color: white;
-}
-
-/* ==============================================
-   Footer
-   ============================================== */
-footer {
-  margin-top: auto;
-  padding: 0.8rem;
-  text-align: center;
-  background-color: white;
 }
