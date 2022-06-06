@@ -55,10 +55,11 @@ def auth():
 
         email = request.form.get("email")
         password = request.form.get("password")
+        print(email)
 
         #error handling for empty username
         if email == '':
-            return render_template("login.html", error="Empty username, who are you?")
+            return render_template("login.html", error="Empty email, who are you?")
 
         db = sqlite3.connect('users.db')
         c = db.cursor()
@@ -79,8 +80,8 @@ def auth():
                 return render_template("login.html", error="Wrong password")
             # password is correct
             else:
-                print("sessioned")
                 session['email'] = email
+                print(session['email'])
         db.close()
         print("redirecting")
         return redirect('/')
@@ -115,17 +116,19 @@ def register():
         c = db.cursor()
         c.execute("CREATE TABLE IF NOT EXISTS users(email TEXT, password TEXT, name TEXT, usauID INT, UNIQUE(email))")
         c.execute("SELECT email FROM users WHERE email=?", (email,))
-        c.execute("INSERT INTO users(email, password, name, usauID) VALUES(?, ?, ?, ?)", (email, password, name, usau))
-            #temporary usauID is denoted by the 0
+        c.execute("INSERT INTO users(email, password, name, usauID) VALUES(?, ?, ?, ?)", (email, password, name, usau,))
+        #temporary usauID is denoted by the 0
 
-            #table for <year> rostering
-        table = "CREATE TABLE IF NOT EXISTS {year}(email TEXT, password TEXT, name TEXT, team TEXT, usauID INT)".format(year="A"+str(current_year))
-        c.execute(table)
+        #table for <year> rostering
+        c.execute("CREATE TABLE IF NOT EXISTS {year}(email TEXT, password TEXT, name TEXT, team TEXT, usauID INT)".format(year="A"+str(current_year)))
+        #insert information into <year> table
+        c.execute("INSERT INTO {year}(email, password, name, usauID) VALUES(?, ?, ?, ?)".format(year="A"+str(current_year)), (email, password, name, usau,))
 
+        session['email'] = email
 
         db.commit()
         db.close()
-        print()
+        print("reee")
         return redirect("/login")
 
     else:
@@ -149,8 +152,10 @@ def roster():
         #decrement current_year
         temp_current_year -= 1
 
-    print(all_roster)
-    return render_template("roster.html", allInfo = all_roster, admin = True)
+    print(all_roster) #{2021: [('h@gmail.com', '123', 'han', None, None)], [('yo@gmail.com', '123', etc)]
+                      # 2022: [('a@gmail.com',)]}
+    return render_template("roster.html", allYears = all_roster.keys(), allInfo = all_roster.values(), admin=True)
+    #return render_template("roster.html", allInfo = all_roster, admin = True)
     #!!!!!!!!!! set admin to a variable NOT ALWAYS TRUE
 
 @app.route("/draw", methods=['GET', 'POST'])
