@@ -44,3 +44,6 @@ Temporarily removed redirects for login for testing
 austinN -- 2022-06-06 09:19
 USAU ID now required for register
 Going to move all database functions into database.py
+
+yoonahC -- 2022-06-06 09:21
+Added work from last 2 classes: dashboard stuff for home.html, layout.html
