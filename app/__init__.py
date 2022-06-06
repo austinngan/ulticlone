@@ -49,7 +49,9 @@ def login():
 # authentication of login; verifies login information
 @app.route("/auth", methods=['GET', 'POST'])
 def auth():
+    print("post?")
     if (request.method == 'POST'):
+        print("yes")
 
         email = request.form.get("email")
         password = request.form.get("password")
@@ -77,6 +79,7 @@ def auth():
                 return render_template("login.html", error="Wrong password")
             # password is correct
             else:
+                print("sessioned")
                 session['email'] = email
         db.close()
         print("redirecting")
