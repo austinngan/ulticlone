@@ -112,17 +112,14 @@ def register():
         c = db.cursor()
         c.execute("CREATE TABLE IF NOT EXISTS users(email TEXT, password TEXT, name TEXT, usauID INT, UNIQUE(email))")
         c.execute("SELECT email FROM users WHERE email=?", (email,))
-
-        if (c.fetchone() == None): #user doesn't exist; continue with registration
-            c.execute("INSERT INTO users(email, password, name, usauID) VALUES(?, ?, ?, 0)", (email, password, name,))
+        c.execute("INSERT INTO users(email, password, name, usauID) VALUES(?, ?, ?, ?)", (email, password, name, usau))
             #temporary usauID is denoted by the 0
 
             #table for <year> rostering
-            table = "CREATE TABLE IF NOT EXISTS {year}(email TEXT, password TEXT, name TEXT, team TEXT, usauID INT)".format(year="A"+str(current_year))
-            c.execute(table)
+        table = "CREATE TABLE IF NOT EXISTS {year}(email TEXT, password TEXT, name TEXT, team TEXT, usauID INT)".format(year="A"+str(current_year))
+        c.execute(table)
 
-        else: #error: username already taken
-            return render_template("register.html", error="Username taken already")
+
         db.commit()
         db.close()
         print()
@@ -133,6 +130,8 @@ def register():
 
 @app.route("/roster", methods=['GET', 'POST'])
 def roster():
+    if not islogged():
+        return redirect("/login")
 
     all_roster = {} #dictionary of all the roster info; {2022: [name, g/b, usauID]}
     temp_current_year = current_year #mutate the current_year info without actually changing the current_year
@@ -153,17 +152,22 @@ def roster():
 
 @app.route("/draw", methods=['GET', 'POST'])
 def draw():
+    if not islogged():
+        return redirect("/login")
 
     return render_template("draw.html") #placeholder stuff
 
 @app.route("/attendance", methods=['GET', 'POST'])
 def attendance():
+    if not islogged():
+        return redirect("/login")
 
     return render_template("attendance.html") #placeholder stuff
 
 @app.route("/tracker", methods=['GET', 'POST'])
 def tracker():
-
+    if not islogged():
+        return redirect("/login")
     return render_template("tracker.html")
 
 @app.route("/about", methods=['GET', 'POST'])
