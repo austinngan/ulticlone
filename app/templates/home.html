@@ -8,9 +8,39 @@ P04 -- Ultibase
 
 {% block title %} Home {% endblock %}
 {% block body %}
+<svg style="display:none;">...</svg>
+<header class="page-header">...</header>
+<section class="page-content">...</section>
   <br>
   <h1> Welcome to Ultibase </h1>
     <center>
       <img src="flag.jpg" alt="stinky fingers" width="600" height="100">
     </center>
+
+    <header class="page-header">
+      <nav>
+        <ul class="admin-menu">
+          <li class="menu-heading">
+            <h3>Admin</h3>
+          </li>
+          <li>
+            <a href="#0">
+              <svg>
+                <use xlink:href="#pages"></use>
+              </svg>
+              <span>Roster</span>
+            </a>
+          </li>
+          </ul>
+      </nav>
+    </header>
+
+    <section class="page-content">
+      <section class="grid">
+        <article></article>
+        <article></article>
+        <article></article>
+        <article></article>
+      </section>
+    </section>
 {% endblock %}

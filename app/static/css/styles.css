@@ -4,63 +4,171 @@ SoftDev
 P04 -- Ultibase
 2022-06-10 */
 
-body {
-  min-height: 100vh;
+
+:root {
+  --page-header-bgColor: #242e42;
+  --page-header-bgColor-hover: #1d2636;
+  --page-header-txtColor: #dde9f8;
+  --page-header-headingColor: #7889a4;
+  --page-header-width: 220px;
+  --page-content-bgColor: #f0f1f6;
+  --page-content-txtColor: #171616;
+  --page-content-blockColor: #fff;
+  --white: #fff;
+  --black: #333;
+  --blue: #00b9eb;
+  --red: #ec1848;
+  --border-radius: 4px;
+  --box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.075);
+  --switch-bgLightModeColor: #87cefa;
+  --switch-sunColor: gold;
+  --switch-moonColor: #f4f4f4;
+  --switch-bgDarkModeColor: #1f1f27;
+}
+
+* {
+  padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-
-  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+  box-sizing: border-box;
 }
 
-main {
-  margin: 8px;
+ul {
+  list-style: none;
 }
 
-/* ==============================================
-   Header tags
-   ============================================== */
-h1 {
-  text-align: center;
+a,
+button {
+  color: inherit;
 }
 
-/* ==============================================
-   Link tags
-   ============================================== */
 a {
-  color: black;
   text-decoration: none;
 }
 
-a:hover {
-  text-decoration: underline;
+button {
+  background: none;
+  cursor: pointer;
+}
+
+input {
+  -webkit-appearance: none;
+}
+
+[type="checkbox"] {
+  position: absolute;
+  left: -9999px;
+}
+
+label {
+  cursor: pointer;
+}
+
+button,
+input {
+  border: none;
+}
+
+svg {
+  display: block;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
 
 /* ==============================================
-   Navbar
+   Header
    ============================================== */
-nav {
-  padding: 1.2rem 2rem;
-  background-color: rgb(30, 30, 30);
 
-  font-size: 1.4rem;
-
-  display: flex;
-  justify-content: space-between;
+.page-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  padding-top: 20px;
+  width: var(--page-header-width);
+  color: var(--page-header-txtColor);
+  background: var(--page-header-bgColor);
 }
 
-/**
- * Navbar sub sections are also flex containers
- * There's a left and right subsection, one containing the main pages,
- * the other containing login/logout/signup links
- */
-nav > div {
+.page-header nav {
   display: flex;
-  gap: 1.2rem;
+  flex-direction: column;
+  min-height: 100%;
 }
 
-nav * {
-  color: white;
+/* ==============================================
+   Menu
+   ============================================== */
+
+.page-header .admin-menu {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-top: 35px;
+}
+
+.page-header .admin-menu li:last-child {
+  margin-top: auto;
+  margin-bottom: 20px;
+}
+
+.page-header .admin-menu li > * {
+  width: 100%;
+  padding: 12px 15px;
+}
+
+.page-header .admin-menu .menu-heading h3 {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 12px;
+  margin-top: 12px;
+  color: var(--page-header-headingColor);
+}
+
+.page-header .admin-menu a,
+.page-header .admin-menu button {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+/* ==============================================
+   Page Content stuff
+   ============================================== */
+
+.page-content {
+  position: relative;
+  left: var(--page-header-width);
+  width: calc(100% - var(--page-header-width));
+  min-height: 100vh;
+  padding: 30px;
+  color: var(--page-content-txtColor);
+  background: var(--page-content-bgColor);
+}
+
+/* ==============================================
+   Grid stuff
+   ============================================== */
+.page-content .grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 30px;
+}
+
+.page-content .grid > article {
+  display: flex;
+  height: 300px;
+  background: var(--page-content-blockColor);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.page-content .grid > article:first-child,
+.page-content .grid > article:last-child {
+  grid-column: 1 / -1;
 }
 
 /* ==============================================

@@ -22,7 +22,7 @@ P04 -- Ultibase
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
   </head>
   <body>
-    <nav>
+    <!-- <nav>
       <div>
         <a id="home" href="/"> 🥏 Ultibase </a>
         <a id="roster" href="/roster">Roster</a>
@@ -31,6 +31,7 @@ P04 -- Ultibase
         <a id="tracker" href="/tracker">Toss Buddy Tracker</a>
         <a id="about" href="/about">About</a>
       </div>
+      -->
       <div>
         {% if user is defined and user is not none %}
           <a id = "user">Hello there, {{user}}!</a>
@@ -40,7 +41,7 @@ P04 -- Ultibase
           <a id="signup" href="/register">Signup</a>
         {% endif %}
       </div>
-    </nav>
+    <!-- </nav> -->
 
     <main>
       {% block body %}{% endblock %}
