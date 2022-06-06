@@ -13,6 +13,7 @@ starting_year = 2021 #not mutable
 adminlist = ['admin@admin.com']
 
 def islogged():
+    print(session.keys())
     return 'email' in session.keys()
 
 def isAdmin(email):
@@ -132,15 +133,13 @@ def register():
 
 @app.route("/roster", methods=['GET', 'POST'])
 def roster():
-    if not islogged():
-        return redirect("/login")
 
     all_roster = {} #dictionary of all the roster info; {2022: [name, g/b, usauID]}
     temp_current_year = current_year #mutate the current_year info without actually changing the current_year
     while temp_current_year >= starting_year:
         db = sqlite3.connect('users.db')
         c = db.cursor()
-        c.execute("SELECT * FROM ?", (temp_current_year,))
+        c.execute("SELECT * FROM {currentYear}".format(currentYear="A"+str(temp_current_year)))
         info = c.fetchall()
 
         #add the info into the dictionary
