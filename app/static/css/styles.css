@@ -17,6 +17,30 @@ main {
   margin: 8px;
 }
 
+.div1 {
+  width: 600px;
+  height: 400px;
+  padding: 10px;
+  border: 1px solid blue;
+}
+
+.div2 {
+  width: 500px;
+  height: 370px;
+  padding: 10px;
+  border: 1px solid blue;
+}
+
+.div3 {
+  position: absolute;
+  top: 170px;
+  right: 100px;
+  width: 500px;
+  height: 370px;
+  padding: 10px;
+  border: 1px solid blue;
+}
+
 /* ==============================================
    Header tags
    ============================================== */
