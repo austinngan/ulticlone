@@ -40,3 +40,7 @@ Fixed redirects, css now works
 austinN -- 2022-06-03 09:26
 Started JS files for looping through roster + attendance to show for all users
 Temporarily removed redirects for login for testing
+
+austinN -- 2022-06-06 09:19
+USAU ID now required for register
+Going to move all database functions into database.py
