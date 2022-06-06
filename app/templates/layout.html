@@ -8,30 +8,25 @@ P04 -- Ultibase
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="../static/css/styles.css">
+       <link rel="stylesheet" href="../static/css/styles.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <link rel="shortcut icon" type="image/jpg" href="https://cdn-icons-png.flaticon.com/512/225/225932.png"/>
-
-    <title>{% block title %}{% endblock %}</title>
+       <link rel="shortcut icon" type="image/jpg" href="https://cdn-icons-png.flaticon.com/512/225/225932.png"/>    <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
   </head>
   <body>
-    <!-- <nav>
+    <nav>
       <div>
         <a id="home" href="/"> 🥏 Ultibase </a>
         <a id="roster" href="/roster">Roster</a>
-        <a id="attendance" href="/attendance">Attendance</a>
-        <a id="plays" href="/draw">Plays</a>
+        <a id="plays" href="/plays">Plays</a>
         <a id="tracker" href="/tracker">Toss Buddy Tracker</a>
         <a id="about" href="/about">About</a>
       </div>
-      -->
       <div>
         {% if user is defined and user is not none %}
           <a id = "user">Hello there, {{user}}!</a>
@@ -41,7 +36,7 @@ P04 -- Ultibase
           <a id="signup" href="/register">Signup</a>
         {% endif %}
       </div>
-    <!-- </nav> -->
+    </nav>
 
     <main>
       {% block body %}{% endblock %}
