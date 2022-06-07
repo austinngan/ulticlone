@@ -21,7 +21,11 @@ P04 -- Ultibase
       <div class="content">
         <p> Name: {{player[1]}} </p>
         <p> Email: {{player[0]}} </p>
-        <p> USAU ID: {{player[3]}} </p>
+
+        {% if admin == True %}
+          <p> USAU ID: {{player[3]}} </p>
+        {% endif %}
+
       </div>
 
     {% endfor %}

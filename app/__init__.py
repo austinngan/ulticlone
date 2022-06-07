@@ -156,7 +156,7 @@ def roster():
                       # 2022: [('a@gmail.com',)]}
     print(all_roster.values())
     print(list(all_roster.values())[0])
-    return render_template("roster.html", allYears = all_roster.keys(), allInfo = list(all_roster.values()), admin=True)
+    return render_template("roster.html", allYears = all_roster.keys(), allInfo = list(all_roster.values()), admin=False)
     #return render_template("roster.html", allInfo = all_roster, admin = True)
     #!!!!!!!!!! set admin to a variable NOT ALWAYS TRUE
 
