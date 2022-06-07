@@ -195,7 +195,7 @@ def tracker():
     c.execute("SELECT * FROM frees")
     info = c.fetchall()
 
-    return render_template("tracker.html", allFrees = info)
+    return render_template("tracker.html", user = session['name'], allFrees = info)
 
 @app.route("/frees", methods=['GET', 'POST'])
 def frees():
