@@ -177,6 +177,12 @@ def draw():
 
     return render_template("draw.html", user=session['name']) #placeholder stuff
 
+@app.route("/plays", methods=['GET', 'POST'])
+def plays():
+    if not islogged():
+        return redirect("/login")
+    return render_template("plays.html", user=session['name']) #placeholder stuff
+
 @app.route("/attendance", methods=['GET', 'POST'])
 def attendance():
     if not islogged():
@@ -190,7 +196,7 @@ def tracker():
         return redirect("/login")
     db = sqlite3.connect('users.db')
     c = db.cursor()
-    
+
     c.execute("CREATE TABLE IF NOT EXISTS frees(period INT, email TEXT, name TEXT)")
     c.execute("SELECT * FROM frees")
     info = c.fetchall()
@@ -201,14 +207,14 @@ def tracker():
 def frees():
     if not islogged():
         return redirect("/login")
-    
+
     if (request.method == 'POST'):
         db = sqlite3.connect('users.db')
         c = db.cursor()
 
         pd = request.form('period')
         c.execute("INSERT INTO frees(period, email, name) VALUES(?, ?, ?)"), (pd, session['name'], session['email'])
-    
+
     return render_template('tracker.html', user=session['name'])
 
 @app.route("/about", methods=['GET', 'POST'])
