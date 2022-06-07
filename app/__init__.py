@@ -14,6 +14,7 @@ adminlist = ['admin@admin.com']
 
 def islogged():
     print(session.keys())
+    print('email' in session.keys())
     return 'email' in session.keys()
 
 def isAdmin(email):
@@ -23,6 +24,8 @@ def isAdmin(email):
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
+    if islogged() == True:
+        return render_template('home.html', user=session['name'])
     return render_template('home.html')
 
 @app.route("/logout",  methods=['GET', 'POST'])
@@ -30,6 +33,7 @@ def logout():
     # try except is for when user is not logged in and does /logout anyways and a KeyError occurs
     try:
         session.pop('email')
+        session.pop('name')
     except KeyError:
         return redirect("/")
     return redirect("/")
@@ -54,6 +58,7 @@ def auth():
         print("yes")
 
         email = request.form.get("email")
+        name = request.form.get("name")
         password = request.form.get("password")
         print(email)
 
@@ -81,7 +86,9 @@ def auth():
             # password is correct
             else:
                 session['email'] = email
-                print(session['email'])
+                c.execute("SELECT name FROM users WHERE email=?", (email,))
+                session['name'] = c.fetchone()[0] #get first string of tuple
+                print(session['name'])
         db.close()
         print("redirecting")
         return redirect('/')
@@ -124,7 +131,9 @@ def register():
         #insert information into <year> table
         c.execute("INSERT INTO {year}(email, name, usauID) VALUES(?, ?, ?)".format(year="A"+str(current_year)), (email, name, usau,))
 
-        session['email'] = email
+        '''session['email'] = email
+        session['name'] = name
+        '''
 
         db.commit()
         db.close()
@@ -156,7 +165,8 @@ def roster():
                       # 2022: [('a@gmail.com',)]}
     print(all_roster.values())
     print(list(all_roster.values())[0])
-    return render_template("roster.html", allYears = all_roster.keys(), allInfo = list(all_roster.values()), admin=False)
+    print(session['name'])
+    return render_template("roster.html", user=session['name'], allYears = all_roster.keys(), allInfo = list(all_roster.values()), admin=False)
     #return render_template("roster.html", allInfo = all_roster, admin = True)
     #!!!!!!!!!! set admin to a variable NOT ALWAYS TRUE
 
@@ -165,25 +175,25 @@ def draw():
     if not islogged():
         return redirect("/login")
 
-    return render_template("draw.html") #placeholder stuff
+    return render_template("draw.html", user=session['name']) #placeholder stuff
 
 @app.route("/attendance", methods=['GET', 'POST'])
 def attendance():
     if not islogged():
         return redirect("/login")
 
-    return render_template("attendance.html") #placeholder stuff
+    return render_template("attendance.html", user=session['name']) #placeholder stuff
 
 @app.route("/tracker", methods=['GET', 'POST'])
 def tracker():
     if not islogged():
         return redirect("/login")
-    return render_template("tracker.html")
+    return render_template("tracker.html", user=session['name'])
 
 @app.route("/about", methods=['GET', 'POST'])
 def about():
 
-    return render_template("about.html")
+    return render_template("about.html", user=session['name'])
 
 if __name__=="__main__":
     app.debug = True
