@@ -16,9 +16,12 @@ P04 -- Ultibase
     </div>
 
     {% for player in allInfo[0] %}
+    <!-- player example: ('h@gmail.com', 'han', 'girls', '000') -->
 
       <div class="content">
-        <p> Info: {{player}} </p>
+        <p> Name: {{player[1]}} </p>
+        <p> Email: {{player[0]}} </p>
+        <p> USAU ID: {{player[3]}} </p>
       </div>
 
     {% endfor %}

@@ -120,9 +120,9 @@ def register():
         #temporary usauID is denoted by the 0
 
         #table for <year> rostering
-        c.execute("CREATE TABLE IF NOT EXISTS {year}(email TEXT, password TEXT, name TEXT, team TEXT, usauID INT)".format(year="A"+str(current_year)))
+        c.execute("CREATE TABLE IF NOT EXISTS {year}(email TEXT, name TEXT, team TEXT, usauID INT)".format(year="A"+str(current_year)))
         #insert information into <year> table
-        c.execute("INSERT INTO {year}(email, password, name, usauID) VALUES(?, ?, ?, ?)".format(year="A"+str(current_year)), (email, password, name, usau,))
+        c.execute("INSERT INTO {year}(email, name, usauID) VALUES(?, ?, ?)".format(year="A"+str(current_year)), (email, name, usau,))
 
         session['email'] = email
 
