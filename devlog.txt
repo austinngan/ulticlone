@@ -56,3 +56,7 @@ Worked on roster.html and the toss buddy tracker
 
 yoonahC -- 2022-06-07 09:21
 Worked on dashboard and plays/draw.html
+
+austinN -- 2022-06-07 09:24
+Changed favicon
+Worked on templates for tosso buddy tracker
