@@ -9,12 +9,19 @@ P04 -- Ultibase
 
 {% block body %}
 
-  {% for year in allInfo %}
+  {% for year in allYears %}
 
-    <button type="button" class="collapsible">Member Name</button>
+    <div class="content">
+      <p> Year: {{year}} </p>
+    </div>
+
+    {% for player in allInfo[0] %}
+
       <div class="content">
-        <p> USAU ID: {{player_info}} </p>
+        <p> Info: {{player}} </p>
       </div>
-    
+
+    {% endfor %}
+
   {% endfor %}
 {% endblock %}
