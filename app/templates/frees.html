@@ -6,7 +6,80 @@ P04 -- Ultibase
 
 {% extends "layout.html" %}
 
-{% block title %} Home {% endblock %}
-{% block body %}
+{% block title %} Register {% endblock %}
 
+{% block body %}
+<body>
+  <div class="container d-flex justify-content-center mx-auto align-items-center">
+    <div class="card login-card">
+      <div class="card-body">
+        <center>
+          <h2 class="card-title"> Enter your frees </h2>
+        </center>
+        <form method="POST" action="/frees">
+          <br>
+
+          <div class="form-check">
+            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+            <label class="form-check-label" for="inlineRadio1">1</label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+            <label class="form-check-label" for="inlineRadio2">2</label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+            <label class="form-check-label" for="inlineRadio3">3</label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+            <label class="form-check-label" for="inlineRadio4">4</label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+            <label class="form-check-label" for="inlineRadio5">5</label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+            <label class="form-check-label" for="inlineRadio6">6</label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+            <label class="form-check-label" for="inlineRadio7">7</label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+            <label class="form-check-label" for="inlineRadio8">8</label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+            <label class="form-check-label" for="inlineRadio9">9</label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+            <label class="form-check-label" for="inlineRadio10">10</label>
+          </div>
+
+          <center>
+            <div class="form-group">
+              <input type="submit" value="Submit" class="btn btn-purple submitbutton"></input>
+            </div>
+          </center>
+        </form>
+
+        <br>
+
+      </div> <!-- card body -->
+    </div> <!-- card div -->
+  </div> <!-- container div -->
+</body>
 {% endblock %}

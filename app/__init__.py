@@ -215,7 +215,7 @@ def frees():
         pd = request.form('period')
         c.execute("INSERT INTO frees(period, email, name) VALUES(?, ?, ?)"), (pd, session['name'], session['email'])
 
-    return render_template('tracker.html', user=session['name'])
+    return render_template('frees.html', user=session['name'])
 
 @app.route("/about", methods=['GET', 'POST'])
 def about():

@@ -9,5 +9,22 @@ P04 -- Ultibase
 {% block title %} Home {% endblock %}
 {% block body %}
 
+<body>
+  <div class="container d-flex justify-content-center mx-auto align-items-center">
+    <div class="card login-card">
+      <div class="card-body">
+        <center>
+          <h2 class="card-title"> Tosso Tracker </h2>
+        </center>
+
+        <div class="form-group">
+          <p style="color:red;">{{ explain }}</p>
+          <a id="frees" href = "/frees"> Change your frees here!</a>
+        </div>
+      </div> <!-- card body -->
+    </div> <!-- card div -->
+  </div> <!-- container div -->
+</body>
+
 
 {% endblock %}
