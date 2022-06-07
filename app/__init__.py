@@ -178,7 +178,26 @@ def attendance():
 def tracker():
     if not islogged():
         return redirect("/login")
-    return render_template("tracker.html")
+    db = sqlite3.connect('users.db')
+    c = db.cursor()
+    
+    c.execute("CREATE TABLE IF NOT EXISTS frees(period INT, email TEXT, name TEXT)")
+    c.execute("SELECT * FROM frees")
+    info = c.fetchall()
+
+    return render_template("tracker.html", allFrees = info)
+
+@app.route("/frees", methods=['GET', 'POST'])
+def frees():
+    if not islogged():
+        return redirect("/login")
+    
+    if (request.method == 'POST'):
+        db = sqlite3.connect('users.db')
+        c = db.cursor()
+
+        pd = request.form('period')
+        c.execute("INSERT INTO frees(period, email, name) VALUES(?, ?, ?)"), (pd, session['name'], session['email'])
 
 @app.route("/about", methods=['GET', 'POST'])
 def about():
