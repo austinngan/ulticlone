@@ -15,20 +15,32 @@ P04 -- Ultibase
       <p> Year: {{year}} </p>
     </div>
 
-    {% for player in allInfo[0] %}
-    <!-- player example: ('h@gmail.com', 'han', 'girls', '000') -->
-
-      <div class="content">
-        <p> Name: {{player[1]}} </p>
-        <p> Email: {{player[0]}} </p>
-
+    <table>
+      <tr>
+        <th> Name </th>
+        <th> Email </th>
         {% if admin == True %}
-          <p> USAU ID: {{player[3]}} </p>
+          <th> USAU ID </th>
         {% endif %}
+      </tr>
 
-      </div>
-
-    {% endfor %}
+      {% for player in allInfo[0] %}
+        <tr>
+          <th>
+            {{player[1]}}
+          </th>
+          <th>
+            {{player[0]}}
+          </th>
+          {% if admin == True %}
+            <th>
+              {{player[2]}}
+            </th>
+          {% endif %}
+        </tr>
+      {% endfor %}
+    </table>
 
   {% endfor %}
+
 {% endblock %}
