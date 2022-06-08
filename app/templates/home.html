@@ -20,16 +20,15 @@ P04 -- Ultibase
     {% endif %}
   </div>
 
-  <script language="JavaScript">
-    function showInput() {
-        document.getElementById('display').innerHTML = 
-                    document.getElementById("user_input").value;
-    }
-  </script>
-
     <div class="div1">
       Announcements
       <br>
+      <script language="JavaScript">
+        function showInput() {
+            document.getElementById('display').innerHTML = 
+                        document.getElementById("user_input").value;
+        }
+      </script>
       <form>
         <label for="announcement">New announcement:</label><br>
         <input type="text" id="user_input" name="announcement">
@@ -39,9 +38,26 @@ P04 -- Ultibase
         <p><span id='display'></span></p>
     </div>
     <br>
-    <div class="div2">Calendar</div>
-    <div class="div3">Something</div>
-    <div class="div4">Important Links/Documents</div>
+    <div class="div2">
+      Calendar <br>
+      <center>
+      <iframe src="https://calendar.google.com/calendar/embed?src=yoonah.chang%40gmail.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+      </center>
+    </div>
+    <div class="div4">
+      Important Pages
+      <script type="text/JavaScript">
+        function showMessage(){
+            var message = document.getElementById("message").value;
+            display_message.innerHTML= message;
+        }
+      </script>
+      <br>
+      Add new links/documents: <input type="text" id = "message">
+      <input type="submit" onclick="showMessage()" value="Submit" />
+      <p> See below! <br> <span id = "display_message"></span> </p>
+      <br>
+    </div>
 
     
 

@@ -17,35 +17,28 @@ main {
   margin: 8px;
 }
 
-.div1 {
-  width: 600px;
-  height: 350px;
-  padding: 10px;
-  border: 1px solid blue;
-}
-
-.div2 {
-  width: 500px;
-  height: 370px;
-  padding: 10px;
-  border: 1px solid blue;
-}
-
-.div3 {
+.div1 { /*changed this to the announcements div*/
   position: absolute;
-  top: 200px;
+  top: 210px;
   right: 15px;
-  width: 500px;
-  height: 370px;
+  width: 900px;
+  height: 340px;
   padding: 10px;
   border: 1px solid blue;
 }
 
-.div4 {
+.div2 {  /*calendar div*/
+  width: 900px;
+  height: 670px;
+  padding: 10px;
+  border: 1px solid blue;
+}
+
+.div4 {  /*links/documents div*/
   position: absolute;
-  bottom: 15px;
+  bottom: 35px;
   right: 15px;
-  width: 700px;
+  width: 900px;
   height: 370px;
   padding: 10px;
   border: 1px solid blue;
