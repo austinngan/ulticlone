@@ -69,3 +69,6 @@ Worked on attendance input/forms, resized dashboard div boxes
 
 yoonahC -- 2022-06-08 09:21
 Finally got the calendar to work, added form functionality for important links/documents part of dashboard.
+
+austinN -- 2022-06-08 09:24
+Changed up database for free periods, have to work on having the forms actually pass to the database
