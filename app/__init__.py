@@ -210,7 +210,7 @@ def tracker():
     db = sqlite3.connect('users.db')
     c = db.cursor()
 
-    c.execute("CREATE TABLE IF NOT EXISTS frees(period INT, email TEXT, name TEXT)")
+    c.execute("CREATE TABLE IF NOT EXISTS frees(period INT, true INT, name TEXT)")
     c.execute("SELECT * FROM frees")
     info = c.fetchall()
 
@@ -225,8 +225,11 @@ def frees():
         db = sqlite3.connect('users.db')
         c = db.cursor()
 
-        pd = request.form('period')
-        c.execute("INSERT INTO frees(period, email, name) VALUES(?, ?, ?)"), (pd, session['name'], session['email'])
+        for i in range(1,11):
+            numToStr = str(i)
+            pdStr = 'pd'+numToStr
+            pd = request.form(pdStr)
+            c.execute("INSERT INTO frees(period, true, name) VALUES(?, ?, ?, ?)"), (i, pd, session['name'],)
 
     return render_template('frees.html', user=session['name'])
 
