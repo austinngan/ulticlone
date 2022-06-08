@@ -60,3 +60,9 @@ Worked on dashboard and plays/draw.html
 austinN -- 2022-06-07 09:24
 Changed favicon
 Worked on templates for tosso buddy tracker
+
+yayingLL -- 2022-06-07 10:00
+Worked on checklist attendance
+
+yoonahC -- 2022-06-08 08:42
+Worked on attendance input/forms, resized dashboard div boxes
