@@ -7,15 +7,42 @@ P04 -- Ultibase
 {% extends "layout.html" %}
 
 {% block title %} Home {% endblock %}
+
 {% block body %}
 
   <br>
   <h1> Welcome to Ultibase! </h1>
+  <div>
+    {% if user is defined and user is not none %}
+      <h2>hi</h2>
+    {% else %}
+      <h2>Please log in view your dashboard</h2>
+    {% endif %}
+  </div>
 
-    <div class="div1">Announcements</div>
+  <script language="JavaScript">
+    function showInput() {
+        document.getElementById('display').innerHTML = 
+                    document.getElementById("user_input").value;
+    }
+  </script>
+
+    <div class="div1">
+      Announcements
+      <br>
+      <form>
+        <label for="announcement">New announcement:</label><br>
+        <input type="text" id="user_input" name="announcement">
+      </form>
+        <input type="submit" value="Submit" onclick="showInput();"><br/>
+        <label>Your input: </label>
+        <p><span id='display'></span></p>
+    </div>
     <br>
     <div class="div2">Calendar</div>
     <div class="div3">Something</div>
     <div class="div4">Important Links/Documents</div>
+
+    
 
 {% endblock %}
