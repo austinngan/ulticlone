@@ -18,13 +18,13 @@ main {
 }
 
 .div1 { /*changed this to the announcements div*/
-  position: absolute;
   top: 210px;
   right: 15px;
   width: 900px;
   height: 340px;
   padding: 10px;
   border: 1px solid blue;
+  box-sizing: border-box;
 }
 
 .div2 {  /*calendar div*/
@@ -32,16 +32,17 @@ main {
   height: 670px;
   padding: 10px;
   border: 1px solid blue;
+  box-sizing: border-box;
 }
 
-.div4 {  /*links/documents div*/
-  position: absolute;
+.div3 {  /*links/documents div*/
   bottom: 35px;
   right: 15px;
   width: 900px;
   height: 370px;
   padding: 10px;
   border: 1px solid blue;
+  box-sizing: border-box;
 }
 
 /* ==============================================
