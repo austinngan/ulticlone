@@ -72,3 +72,6 @@ Finally got the calendar to work, added form functionality for important links/d
 
 austinN -- 2022-06-08 09:24
 Changed up database for free periods, have to work on having the forms actually pass to the database
+
+yoonahC -- 2022-06-08 12:27
+Fixed announcements page, fixed dashboard so the boxes resize now, added documentation for plays
