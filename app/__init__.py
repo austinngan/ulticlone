@@ -167,7 +167,6 @@ def roster():
     print(list(all_roster.values())[0])
     print(session['name'])
     return render_template("roster.html", user=session['name'], allYears = all_roster.keys(), allInfo = list(all_roster.values()), admin=False)
-    #return render_template("roster.html", allInfo = all_roster, admin = True)
     #!!!!!!!!!! set admin to a variable NOT ALWAYS TRUE
 
 @app.route("/draw", methods=['GET', 'POST'])
@@ -189,6 +188,20 @@ def attendance():
         return redirect("/login")
 
     return render_template("attendance.html", user=session['name']) #placeholder stuff
+
+@app.route("/changeAttendance", methods=['GET', 'POST'])
+def changeAttendance():
+    #if isAdmin(session['email']):
+    if True:
+        db = sqlite3.connect('users.db')
+        c = db.cursor()
+        c.execute("SELECT * FROM {currentYear}".format(currentYear="A"+str(current_year)))
+        info = c.fetchall()
+        print(info)
+
+        return render_template("updateAttendance.html", allInfo=info)
+
+    return redirect("/attendance")
 
 @app.route("/tracker", methods=['GET', 'POST'])
 def tracker():
