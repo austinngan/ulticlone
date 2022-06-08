@@ -66,3 +66,6 @@ Worked on checklist attendance
 
 yoonahC -- 2022-06-08 08:42
 Worked on attendance input/forms, resized dashboard div boxes
+
+yoonahC -- 2022-06-08 09:21
+Finally got the calendar to work, added form functionality for important links/documents part of dashboard.
