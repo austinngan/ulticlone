@@ -11,6 +11,7 @@ app.secret_key = urandom(32)
 current_year = 2021 #is mutable; can increment
 starting_year = 2021 #not mutable
 adminlist = ['admin@admin.com']
+announcement = ''
 
 def islogged():
     print(session.keys())
@@ -24,9 +25,16 @@ def isAdmin(email):
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
+    global announcement
     if islogged() == True:
-        return render_template('home.html', user=session['name'])
-    return render_template('home.html')
+        if (request.method == 'POST'):
+            announcement = request.form.get('announcement')
+            return redirect('/')
+        return render_template('home.html', user=session['name'], announcement = announcement)
+    if (request.method == 'POST'):
+            announcement = request.form.get('announcement')
+            return redirect('/')
+    return render_template('home.html', announcement = announcement)
 
 @app.route("/logout",  methods=['GET', 'POST'])
 def logout():
