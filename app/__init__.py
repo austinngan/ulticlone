@@ -221,15 +221,44 @@ def frees():
     if not islogged():
         return redirect("/login")
 
+
+    print("post?")
     if (request.method == 'POST'):
+        print("yes")
         db = sqlite3.connect('users.db')
         c = db.cursor()
 
-        for i in range(1,11):
-            numToStr = str(i)
-            pdStr = 'pd'+numToStr
-            pd = request.form(pdStr)
-            c.execute("INSERT INTO frees(period, true, name) VALUES(?, ?, ?, ?)"), (i, pd, session['name'],)
+        pd = request.form.get("p1")
+        print(pd)
+        c.execute("INSERT INTO frees(period, true, name) VALUES(?, ?, ?)", (1, pd, session['name'],))
+        pd = request.form.get("p2")
+        print(pd)
+        c.execute("INSERT INTO frees(period, true, name) VALUES(?, ?, ?)", (2, pd, session['name'],))
+        pd = request.form.get("p3")
+        print(pd)
+        c.execute("INSERT INTO frees(period, true, name) VALUES(?, ?, ?)", (3, pd, session['name'],))
+        pd = request.form.get("p4")
+        print(pd)
+        c.execute("INSERT INTO frees(period, true, name) VALUES(?, ?, ?)", (4, pd, session['name'],))
+        pd = request.form.get("p5")
+        print(pd)
+        c.execute("INSERT INTO frees(period, true, name) VALUES(?, ?, ?)", (5, pd, session['name'],))
+        pd = request.form.get("p6")
+        print(pd)
+        c.execute("INSERT INTO frees(period, true, name) VALUES(?, ?, ?)", (6, pd, session['name'],))
+        pd = request.form.get("p7")
+        print(pd)
+        c.execute("INSERT INTO frees(period, true, name) VALUES(?, ?, ?)", (7, pd, session['name'],))
+        pd = request.form.get("p8")
+        print(pd)
+        c.execute("INSERT INTO frees(period, true, name) VALUES(?, ?, ?)", (8, pd, session['name'],))
+        pd = request.form.get("p9")
+        print(pd)
+        c.execute("INSERT INTO frees(period, true, name) VALUES(?, ?, ?)", (9, pd, session['name'],))
+        pd = request.form.get("p10")
+        print(pd)
+        c.execute("INSERT INTO frees(period, true, name) VALUES(?, ?, ?)", (10, pd, session['name'],))
+
 
     return render_template('frees.html', user=session['name'])
 
