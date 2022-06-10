@@ -206,6 +206,7 @@ def attendance():
 
 @app.route("/changeAttendance", methods=['GET', 'POST'])
 def changeAttendance():
+    #only if you are an admin can you update attendance
     #if isAdmin(session['email']):
     if True:
         db = sqlite3.connect('users.db')
@@ -217,6 +218,11 @@ def changeAttendance():
         return render_template("updateAttendance.html", allInfo=info)
 
     return redirect("/attendance")
+
+@app.route("/updated", methods=['GET', 'POST'])
+def updated():
+    return redirect("/attendance")
+
 
 @app.route("/tracker", methods=['GET', 'POST'])
 def tracker():
