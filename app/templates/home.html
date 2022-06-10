@@ -21,19 +21,16 @@ P04 -- Ultibase
   </div>
 
     <div class="div1">
-      <script language="JavaScript">
-        function showInput() {
-            document.getElementById('display').innerHTML =
-                        document.getElementById("user_input").value;
-        }
-      </script>
-      <form>
-        <label for="announcement">New announcement:</label><br>
-        <input type="text" id="user_input" name="announcement">
+      <form action = "/" method="POST">
+        <input name = "announcement" type="text" placeholder= "New Announcement">
+        <button type="submit">Submit</button>
       </form>
-        <input type="submit" value="Submit" onclick="showInput();"><br/>
-        <label>Announcements: </label>
-        <p><span id='display'></span></p>
+      <br>
+      <label>Announcements: </label>
+      {% if announcement is defined and announcement is not none %}
+        <p><span id='display'> {{announcement}} </span></p>
+      {% endif %}
+        
     </div>
     <br>
     <div class="div2">
