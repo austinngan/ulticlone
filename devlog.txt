@@ -75,3 +75,6 @@ Changed up database for free periods, have to work on having the forms actually 
 
 yoonahC -- 2022-06-08 12:27
 Fixed announcements page, fixed dashboard so the boxes resize now, added documentation for plays
+
+yoonahC -- 2022-06-10 01:10
+Fixed HTML templates and CSS, revamped design document, fixed calendar bug
