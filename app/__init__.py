@@ -197,11 +197,12 @@ def attendance():
 
     db = sqlite3.connect('users.db')
     c = db.cursor()
-    c.execute("SELECT * FROM {currentYear}".format(currentYear="A"+str(temp_current_year)))
+    c.execute("SELECT * FROM {currentYear}".format(currentYear="A"+str(current_year)))
     #(email TEXT, name TEXT, team TEXT, usauID INT, present INT, absent INT)
     info = c.fetchall()
+    print(info)
 
-    return render_template("attendance.html", user=session['name']) #placeholder stuff
+    return render_template("attendance.html", user=session['name'], allInfo=info) #placeholder stuff
 
 @app.route("/changeAttendance", methods=['GET', 'POST'])
 def changeAttendance():
