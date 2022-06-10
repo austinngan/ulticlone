@@ -232,8 +232,10 @@ def tracker():
     c = db.cursor()
 
     c.execute("CREATE TABLE IF NOT EXISTS frees(period INT, isFree INT, name TEXT)")
-    c.execute("SELECT * FROM frees")
+    c.execute("SELECT * FROM frees WHERE isFree=1")
     info = c.fetchall()
+    print(info)
+
 
     return render_template("tracker.html", user = session['name'], allFrees = info)
 
@@ -248,6 +250,9 @@ def frees():
         db = sqlite3.connect('users.db')
         c = db.cursor()
 
+        for i in range(1,11):
+            c.execute("DELETE FROM frees WHERE period=? AND name=?", (i, session['name']))
+
         pd1 = request.form.get("p1")
         pd2 = request.form.get("p2")
         pd3 = request.form.get("p3")
@@ -259,22 +264,19 @@ def frees():
         pd9 = request.form.get("p9")
         pd10 = request.form.get("p10")
 
-        swag = session['name']
-        print(swag)
-
-        c.execute("INSERT INTO frees(period, name) VALUES(?, ?, ?)", (1, session['name'],))
-#        c.execute("INSERT INTO frees(period, isTrue, name) VALUES(?, ?, ?)", (2, pd2, session['name'],))
-#        c.execute("INSERT INTO frees(period, isTrue, name) VALUES(?, ?, ?)", (3, pd3, session['name'],))
-#        c.execute("INSERT INTO frees(period, isTrue, name) VALUES(?, ?, ?)", (4, pd4, session['name'],))
-#        c.execute("INSERT INTO frees(period, isTrue, name) VALUES(?, ?, ?)", (5, pd5, session['name'],))
-#        c.execute("INSERT INTO frees(period, isTrue, name) VALUES(?, ?, ?)", (6, pd6, session['name'],))
-#        c.execute("INSERT INTO frees(period, isTrue, name) VALUES(?, ?, ?)", (7, pd7, session['name'],))
-#        c.execute("INSERT INTO frees(period, isTrue, name) VALUES(?, ?, ?)", (8, pd8, session['name'],))
-#        c.execute("INSERT INTO frees(period, isTrue, name) VALUES(?, ?, ?)", (9, pd9, session['name'],))
-#        c.execute("INSERT INTO frees(period, isTrue, name) VALUES(?, ?, ?)", (10, pd10, session['name'],))
+        c.execute("INSERT INTO frees(period, isFree, name) VALUES(?, ?, ?)", (1, pd1, session['name'],))
+        c.execute("INSERT INTO frees(period, isFree, name) VALUES(?, ?, ?)", (2, pd2, session['name'],))
+        c.execute("INSERT INTO frees(period, isFree, name) VALUES(?, ?, ?)", (3, pd3, session['name'],))
+        c.execute("INSERT INTO frees(period, isFree, name) VALUES(?, ?, ?)", (4, pd4, session['name'],))
+        c.execute("INSERT INTO frees(period, isFree, name) VALUES(?, ?, ?)", (5, pd5, session['name'],))
+        c.execute("INSERT INTO frees(period, isFree, name) VALUES(?, ?, ?)", (6, pd6, session['name'],))
+        c.execute("INSERT INTO frees(period, isFree, name) VALUES(?, ?, ?)", (7, pd7, session['name'],))
+        c.execute("INSERT INTO frees(period, isFree, name) VALUES(?, ?, ?)", (8, pd8, session['name'],))
+        c.execute("INSERT INTO frees(period, isFree, name) VALUES(?, ?, ?)", (9, pd9, session['name'],))
+        c.execute("INSERT INTO frees(period, isFree, name) VALUES(?, ?, ?)", (10, pd10, session['name'],))
         db.commit()
         db.close()
-
+        return redirect("/tracker")
 
     return render_template('frees.html', user=session['name'])
 

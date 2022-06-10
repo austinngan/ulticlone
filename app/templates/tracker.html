@@ -24,6 +24,29 @@ P04 -- Ultibase
       </div> <!-- card body -->
     </div> <!-- card div -->
   </div> <!-- container div -->
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th> Name </th>
+        <th> Period </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in allFrees %}
+        <tr>
+          <th>
+            {{i[2]}}
+          </th>
+          <th>
+            {{i[0]}}
+          </th>
+        </tr>
+
+      {% endfor %}
+    </tbody>
+  </table>
+
 </body>
 
 
