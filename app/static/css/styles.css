@@ -10,7 +10,7 @@ body {
   display: flex;
   flex-direction: column;
 
-  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+  font-family: Roboto, Ubuntu, Cantarell, 'Helvetica Neue'
 }
 
 main {
@@ -45,9 +45,7 @@ main {
   box-sizing: border-box;
 }
 
-/* ==============================================
-   Header tags
-   ============================================== */
+/* Header tags */
 h1 {
   text-align: center;
 }
@@ -56,9 +54,12 @@ h2 {
   text-align: center;
 }
 
-/* ==============================================
-   Link tags
-   ============================================== */
+/* Link and text tags */
+p {
+  color: green;
+  text-decoration-line: underline;
+  text-decoration-color: #349beb;
+}
 a {
   color: black;
   text-decoration: none;
@@ -68,9 +69,7 @@ a:hover {
   text-decoration: underline;
 }
 
-/* ==============================================
-   Navbar
-   ============================================== */
+/* Navbar */
 nav {
   padding: 1.2rem 2rem;
   background-color: rgb(35, 65, 87);
@@ -81,9 +80,7 @@ nav {
   justify-content: space-between;
 }
 
-/* ==============================================
-   Button stuff
-   ============================================== */
+/* Button stuff */
 .button {
   border: none;
   padding: 15px 12px;
@@ -92,13 +89,10 @@ nav {
   font-size: 20px;
 }
 
-/* ==============================================
-   Form stuff
-   ============================================== */
+/* Form stuff */
 input[type=text] {
     width: 100%;
 }
-
 
 nav > div {
   display: flex;
