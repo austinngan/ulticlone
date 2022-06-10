@@ -20,17 +20,13 @@ P04 -- Ultibase
                     <th>Email</th>
                     <th>Days Present</th>
                     <th>Days Absent</th>
-                    <th>USAU ID</th>
-                    <th>Free Periods</th>
                 </tr>
-                {% for i in classic %}
+                {% for player in allInfo %}
                         <tr>
-                            <td>{{ i[0] }}</td>
-                            <td>{{ i[1] }}</td>
-                            <td>{{ i[2] }}</td>
-                            <td>{{ i[3] }}</td>
-                            <td>{{ i[4] }}</td>
-                            <td>{{ i[5] }}</td>
+                            <td>{{ player[1] }}</td> <!-- Name -->
+                            <td>{{ player[0] }}</td> <!-- Email -->
+                            <td>{{ player[4] }}</td> <!-- Present -->
+                            <td>{{ player[5] }}</td> <!-- Absent -->
                         </tr>
                 {% endfor %}
             </table>
