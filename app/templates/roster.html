@@ -15,30 +15,29 @@ P04 -- Ultibase
       <p> Year: {{year}} </p>
     </div>
 
-    <table>
-      <tr>
-        <th> Name </th>
-        <th> Email </th>
-        {% if admin == True %}
-          <th> USAU ID </th>
-        {% endif %}
-      </tr>
-
-      {% for player in allInfo[0] %}
+    <table class="table">
+      <thead>
         <tr>
-          <th>
-            {{player[1]}}
-          </th>
-          <th>
-            {{player[0]}}
-          </th>
-          {% if admin == True %}
-            <th>
-              {{player[2]}}
-            </th>
-          {% endif %}
+          <th> Name </th>
+          <th> Email </th>
+          <th> USAU ID </th>
         </tr>
-      {% endfor %}
+      </thead>
+      <tbody>
+        {% for player in allInfo[0] %}
+          <tr>
+            <th>
+              {{player[1]}}
+            </th>
+            <th>
+              {{player[0]}}
+            </th>
+            <th>
+              {{player[3]}}
+            </th>
+          </tr>
+        {% endfor %}
+      </tbody>
     </table>
 
   {% endfor %}

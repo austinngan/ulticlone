@@ -135,9 +135,9 @@ def register():
         #temporary usauID is denoted by the 0
 
         #table for <year> rostering
-        c.execute("CREATE TABLE IF NOT EXISTS {year}(email TEXT, name TEXT, team TEXT, usauID INT)".format(year="A"+str(current_year)))
+        c.execute("CREATE TABLE IF NOT EXISTS {year}(email TEXT, name TEXT, team TEXT, usauID INT, present INT, absent INT)".format(year="A"+str(current_year)))
         #insert information into <year> table
-        c.execute("INSERT INTO {year}(email, name, usauID) VALUES(?, ?, ?)".format(year="A"+str(current_year)), (email, name, usau,))
+        c.execute("INSERT INTO {year}(email, name, usauID, present, absent) VALUES(?, ?, ?, 0, 0)".format(year="A"+str(current_year)), (email, name, usau,))
 
         '''session['email'] = email
         session['name'] = name
@@ -195,10 +195,18 @@ def attendance():
     if not islogged():
         return redirect("/login")
 
-    return render_template("attendance.html", user=session['name']) #placeholder stuff
+    db = sqlite3.connect('users.db')
+    c = db.cursor()
+    c.execute("SELECT * FROM {currentYear}".format(currentYear="A"+str(current_year)))
+    #(email TEXT, name TEXT, team TEXT, usauID INT, present INT, absent INT)
+    info = c.fetchall()
+    print(info)
+
+    return render_template("attendance.html", user=session['name'], allInfo=info) #placeholder stuff
 
 @app.route("/changeAttendance", methods=['GET', 'POST'])
 def changeAttendance():
+    #only if you are an admin can you update attendance
     #if isAdmin(session['email']):
     if True:
         db = sqlite3.connect('users.db')
@@ -210,6 +218,11 @@ def changeAttendance():
         return render_template("updateAttendance.html", allInfo=info)
 
     return redirect("/attendance")
+
+@app.route("/updated", methods=['GET', 'POST'])
+def updated():
+    return redirect("/attendance")
+
 
 @app.route("/tracker", methods=['GET', 'POST'])
 def tracker():
