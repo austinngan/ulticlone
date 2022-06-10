@@ -23,22 +23,31 @@ P04 -- Ultibase
           <th> USAU ID </th>
         {% endif %}
       </tr>
+    </table>
 
-      {% for player in allInfo[0] %}
+    <table class="table">
+      <thead>
         <tr>
-          <th>
-            {{player[1]}}
-          </th>
-          <th>
-            {{player[0]}}
-          </th>
-          {% if admin == True %}
+          <th> Name </th>
+          <th> Email </th>
+          <th> USAU ID </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for player in allInfo[0] %}
+          <tr>
+            <th>
+              {{player[1]}}
+            </th>
+            <th>
+              {{player[0]}}
+            </th>
             <th>
               {{player[2]}}
             </th>
-          {% endif %}
-        </tr>
-      {% endfor %}
+          </tr>
+        {% endfor %}
+      </tbody>
     </table>
 
   {% endfor %}
