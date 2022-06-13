@@ -21,7 +21,7 @@ document.getElementById('dataType').addEventListener('change', change)
 
 function updateValues() {
   var elements = document.getElementsByClassName("mycheck");
-  console.log("")
+  console.log(elements)
   var names = "";
   for(var i = 0; i < elements.length; i++) {
       if (elements[i].checked == TRUE) {
