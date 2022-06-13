@@ -21,12 +21,7 @@ P04 -- Ultibase
               {% for player in allInfo %}
                       <tr>
                           <td>{{ player[1] }}</td> <!-- Name -->
-<<<<<<< HEAD
-                          <td><input type="checkbox" class="mycheck"/> Present</td> <!-- player[0] is unique email -->
-
-=======
-                          <td><input type="checkbox" value=1 id={{player[0]}} /> Present</td> <!-- player[0] is unique email -->
->>>>>>> 07f4e7f4f2368663bf65119b8284da7226525b6c
+                          <td><input type="checkbox" class="mycheck" name="mycheck"/> Present</td> <!-- player[0] is unique email -->
                       </tr>
               {% endfor %}
           </table>
