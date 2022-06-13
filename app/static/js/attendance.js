@@ -19,9 +19,14 @@ function change() {
 document.getElementById('dataType').addEventListener('change', change)
 */
 
-var elements = document.getElementsByClassName("mycheck");
-var names = '';
-for(var i = 0; i < elements.length; i++) {
-    names += elements[i].name;
+function updateValues() {
+  var elements = document.getElementsByClassName("mycheck");
+  console.log("")
+  var names = "";
+  for(var i = 0; i < elements.length; i++) {
+      if (elements[i].checked == TRUE) {
+        names += elements[i].id;
+      }
+  }
+  document.write(names);
 }
-document.write(names);
