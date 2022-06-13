@@ -23,6 +23,11 @@ def isAdmin(email):
         return True
     return False
 
+def get_db():
+    DATABASE = os.path.join(os.path.dirname(__file__), "database.db")
+    db = sqlite3.connect(DATABASE, check_same_thread=False, timeout=10)
+    return db
+
 @app.route("/", methods=['GET', 'POST'])
 def home():
     global announcement
@@ -50,7 +55,7 @@ def logout():
 @app.route("/login",  methods=['GET', 'POST'])
 def login():
     #create users table so user can login
-    db = sqlite3.connect("users.db")
+    db = get_db()
     c = db.cursor()
     c.execute("CREATE TABLE IF NOT EXISTS users(email TEXT, password TEXT, name TEXT, usauID INT, UNIQUE(email))")
     db.commit()
@@ -74,7 +79,7 @@ def auth():
         if email == '':
             return render_template("login.html", error="Empty email, who are you?")
 
-        db = sqlite3.connect('users.db')
+        db = get_db()
         c = db.cursor()
         #in case users goes straight to /register w/o running /login code
         c.execute("CREATE TABLE IF NOT EXISTS users(email TEXT, password TEXT, name TEXT, usauID INT, UNIQUE(email))")
@@ -127,7 +132,7 @@ def register():
             return render_template("register.html", error="Passwords don't match")
         #username can have leading numbers and special chars in them
 
-        db = sqlite3.connect('users.db')
+        db = get_db()
         c = db.cursor()
         c.execute("CREATE TABLE IF NOT EXISTS users(email TEXT, password TEXT, name TEXT, usauID INT, UNIQUE(email))")
         c.execute("SELECT email FROM users WHERE email=?", (email,))
@@ -159,7 +164,7 @@ def roster():
     all_roster = {} #dictionary of all the roster info; {2022: [name, g/b, usauID]}
     temp_current_year = current_year #mutate the current_year info without actually changing the current_year
     while temp_current_year >= starting_year:
-        db = sqlite3.connect('users.db')
+        db = get_db()
         c = db.cursor()
         c.execute("SELECT * FROM {currentYear}".format(currentYear="A"+str(temp_current_year)))
         info = c.fetchall()
@@ -195,7 +200,7 @@ def attendance():
     if not islogged():
         return redirect("/login")
 
-    db = sqlite3.connect('users.db')
+    db = get_db()
     c = db.cursor()
     c.execute("SELECT * FROM {currentYear}".format(currentYear="A"+str(current_year)))
     #(email TEXT, name TEXT, team TEXT, usauID INT, present INT, absent INT)
@@ -209,7 +214,7 @@ def changeAttendance():
     #only if you are an admin can you update attendance
     #if isAdmin(session['email']):
     if True:
-        db = sqlite3.connect('users.db')
+        db = get_db()
         c = db.cursor()
         c.execute("SELECT * FROM {currentYear}".format(currentYear="A"+str(current_year)))
         info = c.fetchall()
@@ -222,7 +227,7 @@ def changeAttendance():
 @app.route("/updated", methods=['GET', 'POST'])
 def updated():
     if (request.method == 'POST'):
-        db = sqlite3.connect('users.db')
+        db = get_db()
         c = db.cursor()
         c.execute("SELECT email FROM {currentYear}".format(currentYear="A"+str(current_year)))
         #(email TEXT, name TEXT, team TEXT, usauID INT, present INT, absent INT)
@@ -250,7 +255,7 @@ def updated():
 def tracker():
     if not islogged():
         return redirect("/login")
-    db = sqlite3.connect('users.db')
+    db = get_db()
     c = db.cursor()
 
     c.execute("CREATE TABLE IF NOT EXISTS frees(period INT, isFree INT, name TEXT)")
@@ -269,7 +274,7 @@ def frees():
     print("post?")
     if (request.method == 'POST'):
         print("yes")
-        db = sqlite3.connect('users.db')
+        db = get_db()
         c = db.cursor()
 
         for i in range(1,11):
