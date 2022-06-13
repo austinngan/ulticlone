@@ -221,11 +221,30 @@ def changeAttendance():
 
 @app.route("/updated", methods=['GET', 'POST'])
 def updated():
-    allPresent = request.form.getlist("mycheck")
-    print("~~~~")
-    print(allPresent)
+    if (request.method == 'POST'):
+        db = sqlite3.connect('users.db')
+        c = db.cursor()
+        c.execute("SELECT email FROM {currentYear}".format(currentYear="A"+str(current_year)))
+        #(email TEXT, name TEXT, team TEXT, usauID INT, present INT, absent INT)
+        info = c.fetchall()
 
-    return redirect("/updated")
+        for player in info:
+            print(player[0])
+            checkedOff = request.form.get(player[0])
+            print(checkedOff)
+            if (checkedOff == "on"): #checkbox is "on" if it was checked off
+                #add to player's present in db
+                c.execute("UPDATE {year} SET present=present+1 WHERE email=?".format(year="A"+str(current_year)), (player[0],))
+                #c.execute("UPDATE A2021 SET present=present+1 WHERE email=?", (player[0],))
+                print("finished")
+            else:
+                c.execute("UPDATE {currentYear} SET absent=absent+1 WHERE email=?".format(currentYear="A"+str(current_year)), (player[0],))
+                print("lol")
+                #add to player's absence
+
+        db.commit()
+        db.close()
+    return redirect("/attendance")
 
 @app.route("/tracker", methods=['GET', 'POST'])
 def tracker():
