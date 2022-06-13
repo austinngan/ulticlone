@@ -26,3 +26,6 @@ Target Ship Date : 06/10/2022
 - Open the website at http://127.0.0.1:5000/
 
 [Design Doc](https://docs.google.com/document/d/1f4UatT9PReG1F0slmrjlT9d8N_y9Fge4Olmw74rRP58/edit?usp=sharing)
+[Demo Video](https://www.youtube.com/watch?v=-Eb2DuNrzBI&ab_channel=YayaLiangLi)
+
+[Demo Site](http://142.93.250.25/)
