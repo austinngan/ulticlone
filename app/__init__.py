@@ -221,8 +221,11 @@ def changeAttendance():
 
 @app.route("/updated", methods=['GET', 'POST'])
 def updated():
-    return redirect("/attendance")
+    allPresent = request.form.getlist("mycheck")
+    print("~~~~")
+    print(allPresent)
 
+    return redirect("/attendance")
 
 @app.route("/tracker", methods=['GET', 'POST'])
 def tracker():

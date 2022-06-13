@@ -11,7 +11,7 @@ P04 -- Ultibase
 
   <div class="container">
       <div id="classic-top" class="vis">
-        <form action="/updated">
+        <form>
           <table class="table">
               <tr>
                   <th>Name</th>
@@ -21,14 +21,15 @@ P04 -- Ultibase
               {% for player in allInfo %}
                       <tr>
                           <td>{{ player[1] }}</td> <!-- Name -->
-                          <td><input type="checkbox" id={{player[0]}} /> Present</td> <!-- player[0] is unique email -->
+                          <td><input type="checkbox" class="mycheck"/> Present</td> <!-- player[0] is unique email -->
+
                       </tr>
               {% endfor %}
           </table>
           <input type="submit" value="Submit">
         </form>
       </div>
-      <script src="/static/js/leaderboard.js"></script>
+      <script src="/static/js/attendance.js"></script>
   </div>
 
 {% endblock %}
