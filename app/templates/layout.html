@@ -15,7 +15,8 @@ P04 -- Ultibase
 
        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
-       <link rel="shortcut icon" type="image/jpg" href="https://cdn-icons-png.flaticon.com/512/2826/2826998.png"/>    <title>{% block title %}{% endblock %}</title>
+       <link rel="shortcut icon" type="image/jpg" href="https://cdn-icons-png.flaticon.com/512/2826/2826998.png"/>
+       <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
   </head>
   <body>
@@ -30,8 +31,8 @@ P04 -- Ultibase
       </div>
       <div>
         {% if user is defined and user is not none %}
-          <a id = "user">Hello there, {{user}}!</a>
-          <a id="logout"href="/logout">Logout</a>
+          <a id= "user">Hello there, {{user}}!</a>
+          <a id= "logout"href="/logout">Logout</a>
         {% else %}
           <a id="login" href="/login">Login</a>
           <a id="signup" href="/register">Signup</a>

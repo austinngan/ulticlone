@@ -14,9 +14,9 @@ P04 -- Ultibase
   <h1> Welcome to Ultibase! </h1>
   <div>
     {% if user is defined and user is not none %}
-      <h2>hi</h2>
+      <h2>Dashboard</h2>
     {% else %}
-      <h2>Please log in view your dashboard</h2>
+      <h2>Please log in edit your dashboard</h2>
     {% endif %}
   </div>
 
@@ -26,34 +26,27 @@ P04 -- Ultibase
         <button type="submit">Submit</button>
       </form>
       <br>
-      <label>Announcements: </label>
+      <label> <p>Announcements: </p> </label>
       {% if announcement is defined and announcement is not none %}
         <p><span id='display'> {{announcement}} </span></p>
       {% endif %}
-        
+
     </div>
     <br>
     <div class="div2">
-      Calendar <br>
+      <p> Calendar <br> </p>
       <center>
       <iframe src="https://calendar.google.com/calendar/embed?src=yoonah.chang%40gmail.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
       </center>
     </div>
     <div class="div3">
-      Important Pages
-      <script type="text/JavaScript">
-        function showMessage(){
-            var message = document.getElementById("message").value;
-            display_message.innerHTML= message;
-        }
-      </script>
-      <br>
-      Add new links/documents: <input type="text" id = "message">
-      <input type="submit" onclick="showMessage()" value="Submit" />
-      <p> See below! <br> <span id = "display_message"></span> </p>
+      <p> Useful Links/Documents <br> </p>
+      <a href="https://usaultimate.org/rules/"> RULES </a> <br>
+      <a href="https://play.usaultimate.org/members/login/"> USAU </a> <br>
+      <a href="https://discny.org/"> DISCNY </a> <br>
+      <a href="https://discny.org/tryu"> TRYU </a> <br>
+
       <br>
     </div>
-
-
 
 {% endblock %}
