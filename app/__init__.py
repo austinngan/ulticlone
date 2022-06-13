@@ -309,7 +309,8 @@ def frees():
 
 @app.route("/about", methods=['GET', 'POST'])
 def about():
-
+    if not islogged():
+        return render_template("about.html")
     return render_template("about.html", user=session['name'])
 
 if __name__=="__main__":
