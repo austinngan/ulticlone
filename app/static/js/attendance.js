@@ -25,8 +25,10 @@ function updateValues() {
   var names = "";
   for(var i = 0; i < elements.length; i++) {
       if (elements[i].checked == TRUE) {
-        names += elements[i].id;
+        names += elements[i];
       }
   }
   document.write(names);
 }
+
+document.getElementById("demo").addEventListener("click", updateValues);

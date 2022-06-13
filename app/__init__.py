@@ -225,7 +225,7 @@ def updated():
     print("~~~~")
     print(allPresent)
 
-    return redirect("/attendance")
+    return redirect("/updated")
 
 @app.route("/tracker", methods=['GET', 'POST'])
 def tracker():
